@@ -1,5 +1,9 @@
 # xai-outlier-repro
 
+A collaborative MVA Explainable AI course project by **Tristan MARTIN and Ying JIN**. This fork preserves [the original repository](https://github.com/Tristan22400/xai-outlier-repro) and its MIT license.
+
+Start with the [joint course report](report.pdf) and [portfolio guide](docs/PORTFOLIO.md) for scope, source entry points, attribution and validation limits. The documentation update does not claim newly reproduced results or a solo implementation.
+
 Reproducing two interventions that are claimed to eliminate the attention sink and  activation-outlier in small transformer language models, both in isolation and jointly:
 
 1. **softmax-1** (Miller, *Attention Is Off By One*) — replaces
@@ -29,12 +33,12 @@ than by tailing logs.
 
 ```
 src/xai_repro/
-├── attention/softmax1.py       # GPT2Attention subclass
-├── optim/ortho_adam.py         # torch.optim.Optimizer subclass (Kronecker Q)
+├── attention.py       # GPT2Attention subclass
+├── optim.py         # torch.optim.Optimizer subclass (Kronecker Q)
 ├── model.py                    # 60M GPT-2 factory
 ├── data.py                     # C4 pipeline
 ├── train.py                    # HF Trainer entrypoint
-├── callbacks/{mfu,walltime}.py # MFU logging, 34h stop
+├── callbacks.py # MFU logging, 34h stop
 └── analysis/                   # wandb_health, kurtosis, ptq_int8
 configs/gpt2_60m.yaml           # single source of truth for HPs
 scripts/                        # setup_cluster.sh + 4 sbatch files
