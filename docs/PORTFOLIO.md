@@ -6,6 +6,33 @@ A collaborative MVA Explainable AI project by **Tristan MARTIN and Ying JIN**. T
 
 The experiments examine **softmax-1 attention** and **OrthoAdam** in small GPT-2-style language models, separately and jointly. These are reproductions and evaluations of existing methods, not claims to have invented the interventions. The implementation supports baseline, softmax-1, OrthoAdam and joint variants and analyses of attention sinks, activation kurtosis, validation perplexity and INT8 post-training quantization.
 
+## Ying Jin's documented contribution
+
+[Commit 4327383](https://github.com/PineappleBlowsnow/xai-outlier-repro/commit/4327383cacfd888c8892e8bdcced3624fa63fe56) adds two diagnostic scripts and their saved outputs:
+
+| Contribution | Source | Historical output |
+|---|---|---|
+| Cross-model attention and activation visualization, including attention-sink scoring and per-token activation kurtosis | [visualize_figure1.py](../src/xai_repro/analysis/visualize_figure1.py) | [Figure 1 replication](../analysis_results_v2/figure1_replication.png) |
+| Input-only probes with token replacement, context-length sweeps, and positional-embedding controls | [input_ablation.py](../src/xai_repro/analysis/input_ablation.py) | [Ablation results](../analysis_results_v2/ablation_results.json) |
+
+The visualization script configures Pythia, GPT-2 and Llama models. It requests attention tensors and hidden states through the model's `output_attentions` and `output_hidden_states` options. These scripts do not implement a forward-hook framework or train those pretrained models.
+
+The archived ablation JSON contains 24 experiment records across GPT-2, GPT-2 Medium, Pythia-31M and Pythia-160M. Some records contain skipped conditions, such as a context length exceeding a model's limit or a positional-embedding control that does not apply. Llama support in the source should not be read as an executed Llama ablation result in this JSON.
+
+This Git record establishes a concrete contribution; it is not a complete division of all project work. The training pipeline, optimizer interventions and broader course study retain their joint attribution to Tristan Martin and Ying Jin.
+
+## Reading and rerunning the diagnostics
+
+The input-ablation script can select a small subset of probes:
+
+```bash
+python src/xai_repro/analysis/input_ablation.py --models openai-community/gpt2 --experiments baseline swap_at_0 length --out ablation_results/gpt2.json
+```
+
+This requires compatible PyTorch/Transformers dependencies and access to the pretrained weights. It downloads models as needed and performs inference; it was not rerun for this documentation update. The Figure 1 script uses its `MODELS` list and runs a much larger sweep; inspect that list and available memory before executing it.
+
+Two attention metrics must be kept separate: **argmax percentage** counts the share of layer/head/query triples whose winning key is the probed position, while **attention-mass percentage** averages the weight assigned to that key. Taking an argmax after averaging attention matrices is a different statistic. The zero-position-embedding experiment is a diagnostic perturbation of a model trained with those embeddings; a disappearing sink under that perturbation does not, by itself, establish a causal mechanism.
+
 ## Actual source layout
 
 ```text
@@ -44,7 +71,7 @@ Other variant names are `softmax1`, `orthoadam` and `softmax1_ortho`. Training r
 
 The report and saved local analyses support a course study of the interventions. Metric percentages should be quoted only with the exact run, definition and checkpoint: the reviewed report and analysis JSON use differing attention-sink representations, so this README does not collapse them into a single improvement claim. Forward/training throughput, validation perplexity, activation statistics and quantization effects are distinct measurements.
 
-The documentation and command paths were checked against the local source on 22 September 2026. Training and the test suite were **not rerun** during documentation preparation. The reviewed artifacts establish joint authorship but do not specify a complete per-file contribution split.
+The contribution history, diagnostic source paths, JSON structure and documentation links were checked on 26 September 2026. Training, pretrained-model inference and the test suite were **not rerun** during this documentation update. Historical outputs are not a new reproduction, and the specific diagnostic contribution above does not imply sole ownership of the joint codebase.
 
 ## Attribution and reuse
 

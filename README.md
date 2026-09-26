@@ -1,8 +1,16 @@
-# xai-outlier-repro
+# Attention Sinks and Activation Outliers in Language Models
 
 A collaborative MVA Explainable AI course project by **Tristan MARTIN and Ying JIN**. This fork preserves [the original repository](https://github.com/Tristan22400/xai-outlier-repro) and its MIT license.
 
 Start with the [joint course report](report.pdf) and [portfolio guide](docs/PORTFOLIO.md) for scope, source entry points, attribution and validation limits. The documentation update does not claim newly reproduced results or a solo implementation.
+
+## Ying Jin's contribution: cross-model diagnostics and input ablations
+
+Ying implemented the [Figure 1 visualization pipeline](src/xai_repro/analysis/visualize_figure1.py) and [input-ablation experiments](src/xai_repro/analysis/input_ablation.py), recorded in [commit 4327383](https://github.com/PineappleBlowsnow/xai-outlier-repro/commit/4327383cacfd888c8892e8bdcced3624fa63fe56). The visualization examines attention and hidden activations across Pythia, GPT-2 and Llama model families; token-replacement and context-length ablations probe how attention concentration changes with the input.
+
+The [saved visualization](analysis_results_v2/figure1_replication.png) and [ablation JSON](analysis_results_v2/ablation_results.json) are historical outputs. The JSON contains GPT-2 and Pythia runs; configured support for another model is not evidence that every experiment ran on it. The [portfolio guide](docs/PORTFOLIO.md) explains the metrics, runnable entry points and contribution boundary. Training infrastructure and the intervention study remain part of the joint project.
+
+## Joint intervention study
 
 Reproducing two interventions that are claimed to eliminate the attention sink and  activation-outlier in small transformer language models, both in isolation and jointly:
 
@@ -12,12 +20,14 @@ Reproducing two interventions that are claimed to eliminate the attention sink a
 2. **OrthoAdam** — performs Adam's per-coordinate moment updates in a
    random orthogonal basis per parameter, breaking the coordinate-wise
    privilege that Adam otherwise injects.
-3. **Joint intervention** — softmax-1 + OrthoAdam combined, to verify
-   the two interventions do not interact antagonistically.
+3. **Joint intervention** — softmax-1 + OrthoAdam combined, to examine
+   interactions between the two interventions.
 
-Four ~60M-parameter GPT-2 variants (baseline, softmax-1, OrthoAdam,
-joint) are trained under **identical data and schedule** on a subset of
-C4, on a single NVIDIA P100 via Slurm, and compared on three metrics:
+The training configurations cover four ~60M-parameter GPT-2 variants
+(baseline, softmax-1, OrthoAdam, joint) with a shared data pipeline and
+schedule on a subset of C4, targeting a single NVIDIA P100 via Slurm.
+The analysis code supports the following metrics; configuration alone
+does not establish completed runs or measurements for every variant:
 
 | Metric | Implementation |
 |---|---|
@@ -25,9 +35,9 @@ C4, on a single NVIDIA P100 via Slurm, and compared on three metrics:
 | Per-channel activation kurtosis | `src/xai_repro/analysis/kurtosis.py` |
 | INT8 post-training quantization Δppl | `src/xai_repro/analysis/ptq_int8.py` |
 
-All runs log to the `xai-outlier-repro` W&B project; training health is
-verified by querying the W&B API (`analysis/wandb_health.py`) rather
-than by tailing logs.
+The training workflow uses the `xai-outlier-repro` W&B project. The
+`analysis/wandb_health.py` helper can query run health through the W&B
+API when the corresponding logs and access are available.
 
 ## Layout
 
@@ -77,7 +87,7 @@ mypy src
 ssh gpu-telecom
 git clone <this repo>
 cd xai-outlier-repro
-bash scripts/setup_cluster.sh     
+bash scripts/setup_cluster.sh
 ```
 
 After each job finishes, verify health:
