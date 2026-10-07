@@ -1,0 +1,134 @@
+{
+  "archived_on": "2026-10-07",
+  "description": "Existing local course-project files added to the public repository. Historical outputs, not newly reproduced model-training results.",
+  "files": [
+    {
+      "path": "src/xai_repro/analysis/attention_sink_toy.py",
+      "source_sha256": "f756c621673351f8a3833952b816e289bad5c9ff714a3f867ad28d5ffe66589d",
+      "uploaded_sha256": "7ea5a6a2718b9bb9d96bed9cb4442d004f98d12cd99dc7f37e87feb0c8b7c1ed",
+      "bytes": 8127,
+      "change": "Corrected import to the existing xai_repro.attention module; normalized text line endings.",
+      "source_path": "src/xai_repro/analysis/attention_sink_toy.py"
+    },
+    {
+      "path": "src/xai_repro/analysis/plot_attention_sink_toy.py",
+      "source_sha256": "9a302d8faf253c8ab6fa20e1820efa1c5c407066278d0e0f61ff4ce866b8ae30",
+      "uploaded_sha256": "9a302d8faf253c8ab6fa20e1820efa1c5c407066278d0e0f61ff4ce866b8ae30",
+      "bytes": 2902,
+      "change": "unchanged",
+      "source_path": "src/xai_repro/analysis/plot_attention_sink_toy.py"
+    },
+    {
+      "path": "tests/test_attention_sink_toy.py",
+      "source_sha256": "ef11dfcfbc485f9c8e29db27e665813327e4a8024041c72416f6d7548ca2bbbf",
+      "uploaded_sha256": "ef11dfcfbc485f9c8e29db27e665813327e4a8024041c72416f6d7548ca2bbbf",
+      "bytes": 1072,
+      "change": "unchanged",
+      "source_path": "tests/test_attention_sink_toy.py"
+    },
+    {
+      "path": "results/historical/atten_per_layer_baseline.png",
+      "source_sha256": "14eafaaca5d9b45850ef1f0ddca2575c8d2f5d8397947b451a8f5c5c6e1f48cc",
+      "uploaded_sha256": "14eafaaca5d9b45850ef1f0ddca2575c8d2f5d8397947b451a8f5c5c6e1f48cc",
+      "bytes": 494802,
+      "change": "unchanged",
+      "source_path": "results/atten_per_layer_baseline.png"
+    },
+    {
+      "path": "results/historical/atten_per_layer_orthoadam.png",
+      "source_sha256": "9606df34f8e209caa2cdf8c1178359a1e4f521693536674760dd1139a9b60e8e",
+      "uploaded_sha256": "9606df34f8e209caa2cdf8c1178359a1e4f521693536674760dd1139a9b60e8e",
+      "bytes": 466124,
+      "change": "unchanged",
+      "source_path": "results/atten_per_layer_orthoadam.png"
+    },
+    {
+      "path": "results/historical/atten_per_layer_softmax-1.png",
+      "source_sha256": "c5def77a33905aeeb51596b941c06285408c8e4196185b9572adc235c984d637",
+      "uploaded_sha256": "c5def77a33905aeeb51596b941c06285408c8e4196185b9572adc235c984d637",
+      "bytes": 488137,
+      "change": "unchanged",
+      "source_path": "results/atten_per_layer_softmax-1.png"
+    },
+    {
+      "path": "results/toy/attention_sink_toy.json",
+      "source_sha256": "758dfa5e5c5a6c70608833c50e04220c758f8bba9247f53b2623241f7ac10c93",
+      "uploaded_sha256": "09cac7c8aba9fc4335711bbc5c117d8873926b29ae87b44f686c8909c4325e60",
+      "bytes": 29860,
+      "change": "Git normalized CRLF line endings to LF.",
+      "source_path": "results/attention_sink_toy.json"
+    },
+    {
+      "path": "results/toy/attention_sink_toy_local.json",
+      "source_sha256": "519e3e7ecdccc3404244b297cd2330135b7dc65d278fb15a189b1be1c9186069",
+      "uploaded_sha256": "27526f2eae13ed829b6ea784a2747d09817d49e001cd945890dd7e07c27e4f33",
+      "bytes": 117515,
+      "change": "Git normalized CRLF line endings to LF.",
+      "source_path": "results/attention_sink_toy_local.json"
+    },
+    {
+      "path": "results/toy/attention_sink_toy_local.png",
+      "source_sha256": "ede8539005ec2ccc61b3232ef8fb36b8698041cf75089360c82a23e1c7f15a17",
+      "uploaded_sha256": "ede8539005ec2ccc61b3232ef8fb36b8698041cf75089360c82a23e1c7f15a17",
+      "bytes": 174742,
+      "change": "unchanged",
+      "source_path": "results/attention_sink_toy_local.png"
+    },
+    {
+      "path": "results/historical/fig1_training_stability.png",
+      "source_sha256": "51c9f1f921f32347220d4eadba90aed2cd1fce47e9a2b68e4c22fee33a6daf90",
+      "uploaded_sha256": "51c9f1f921f32347220d4eadba90aed2cd1fce47e9a2b68e4c22fee33a6daf90",
+      "bytes": 189403,
+      "change": "unchanged",
+      "source_path": "results/fig1_training_stability.png"
+    },
+    {
+      "path": "results/historical/fig2_attention_dominance.png",
+      "source_sha256": "8be96255e3aa51702a407906d513c6867b09003adea5a66ea1d1455db91606bc",
+      "uploaded_sha256": "8be96255e3aa51702a407906d513c6867b09003adea5a66ea1d1455db91606bc",
+      "bytes": 411841,
+      "change": "unchanged",
+      "source_path": "results/fig2_attention_dominance.png"
+    },
+    {
+      "path": "results/historical/fig3_kurtosis_depth.png",
+      "source_sha256": "fc8e8d58986c14b4a3402875881e4c6cb078790df388c439f1071bd17a9f0f6a",
+      "uploaded_sha256": "fc8e8d58986c14b4a3402875881e4c6cb078790df388c439f1071bd17a9f0f6a",
+      "bytes": 195953,
+      "change": "unchanged",
+      "source_path": "results/fig3_kurtosis_depth.png"
+    },
+    {
+      "path": "results/historical/fig4_max_activation_depth.png",
+      "source_sha256": "89e6e9ff4013dd9cdebd6154ffe21f9cbf31dd7e0c06e821a55d8cadf95adec8",
+      "uploaded_sha256": "89e6e9ff4013dd9cdebd6154ffe21f9cbf31dd7e0c06e821a55d8cadf95adec8",
+      "bytes": 200426,
+      "change": "unchanged",
+      "source_path": "results/fig4_max_activation_depth.png"
+    },
+    {
+      "path": "results/historical/layerwise_dominance.png",
+      "source_sha256": "e30277081d3765afa2e8ff1d693c084e9baab6691baad061524528f3aed82c4d",
+      "uploaded_sha256": "e30277081d3765afa2e8ff1d693c084e9baab6691baad061524528f3aed82c4d",
+      "bytes": 195839,
+      "change": "unchanged",
+      "source_path": "results/layerwise_dominance.png"
+    },
+    {
+      "path": "results/historical/layerwise_max_Activation.png",
+      "source_sha256": "11781ceaa1ec4161b4bf43ce4c31018bb0252abbb92e651935d6a8b70e9216fb",
+      "uploaded_sha256": "11781ceaa1ec4161b4bf43ce4c31018bb0252abbb92e651935d6a8b70e9216fb",
+      "bytes": 183175,
+      "change": "unchanged",
+      "source_path": "results/layerwise_max_Activation.png"
+    },
+    {
+      "path": "results/historical/supp_summary_bars.png",
+      "source_sha256": "b94db51fe57fef3e6e6f37775748721b0a28bfdada0988ec32da35c9c28a6247",
+      "uploaded_sha256": "b94db51fe57fef3e6e6f37775748721b0a28bfdada0988ec32da35c9c28a6247",
+      "bytes": 210138,
+      "change": "unchanged",
+      "source_path": "results/supp_summary_bars.png"
+    }
+  ]
+}

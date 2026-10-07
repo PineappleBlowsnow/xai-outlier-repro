@@ -76,3 +76,17 @@ The contribution history, diagnostic source paths, JSON structure and documentat
 ## Attribution and reuse
 
 Keep the upstream history, source references and both project authors. The current upstream and fork include the [MIT license](../LICENSE), which this documentation update preserves unchanged.
+
+## Local archive added on 7 October 2026
+
+The [additional experiment archive](../results/README.md) now includes the
+synthetic causal-attention toy, its plotter and closed-form tests, plus existing
+local JSON and PNG outputs. These files extend the available project evidence;
+the earlier contribution table is not an exhaustive inventory of local work.
+Their inclusion retains joint project attribution and does not establish sole
+personal authorship from file ownership alone.
+
+The toy isolates normalization and causal visibility without training a model.
+Its checks are documented separately from the historical trained-model figures,
+whose original captions sometimes conflict with the curves. See the [file
+manifest](../results/manifest.json) and [validation record](../results/VALIDATION.md).

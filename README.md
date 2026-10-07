@@ -10,6 +10,20 @@ Ying implemented the [Figure 1 visualization pipeline](src/xai_repro/analysis/vi
 
 The [saved visualization](analysis_results_v2/figure1_replication.png) and [ablation JSON](analysis_results_v2/ablation_results.json) are historical outputs. The JSON contains GPT-2 and Pythia runs; configured support for another model is not evidence that every experiment ran on it. The [portfolio guide](docs/PORTFOLIO.md) explains the metrics, runnable entry points and contribution boundary. Training infrastructure and the intervention study remain part of the joint project.
 
+## Additional local experiments and archived figures
+
+The [local experiment archive](results/README.md) adds a CPU-only synthetic
+causal-attention experiment, its plotting script and closed-form tests, two
+saved JSON runs, and historical analysis figures. Start with the toy experiment
+to see how causal visibility and a null attention destination affect probability
+mass. It does not train a language model.
+
+Historical training plots are kept in a separate archive because some original
+figure titles overstate what the curves show. See the archive notes before using
+these figures as evidence. The [manifest](results/manifest.json) identifies the
+recovered files; [validation notes](results/VALIDATION.md) distinguish newly run
+checks from historical outputs.
+
 ## Joint intervention study
 
 Reproducing two interventions that are claimed to eliminate the attention sink and  activation-outlier in small transformer language models, both in isolation and jointly:
